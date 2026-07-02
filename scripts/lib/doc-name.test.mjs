@@ -4,8 +4,8 @@ import { docName, titleSlug, doctypeOf } from "./doc-name.mjs";
 
 const node = (over) => ({ no: 1, namespace: "personal", type: "concept", visibility: "private", title: "복리", ...over });
 
-test("docName builds the 5-slot targeting name with store kim-1", () => {
-  assert.equal(docName(node()), "kim-1_1_personal_concepts_private_복리");
+test("docName builds the 5-slot targeting name with store kim1", () => {
+  assert.equal(docName(node()), "kim1_1_personal_concepts_private_복리");
 });
 
 test("doctypeOf pluralizes the node type to its folder name", () => {
@@ -33,7 +33,7 @@ test("titleSlug preserves korean/unicode letters", () => {
 });
 
 test("docName for the 3 vault nodes, including the spaced title", () => {
-  assert.equal(docName(node()), "kim-1_1_personal_concepts_private_복리");
-  assert.equal(docName(node({ no: 2, title: "단리" })), "kim-1_2_personal_concepts_private_단리");
-  assert.equal(docName(node({ no: 3, type: "fact", title: "복리 공식" })), "kim-1_3_personal_facts_private_복리-공식");
+  assert.equal(docName(node()), "kim1_1_personal_concepts_private_복리");
+  assert.equal(docName(node({ no: 2, title: "단리" })), "kim1_2_personal_concepts_private_단리");
+  assert.equal(docName(node({ no: 3, type: "fact", title: "복리 공식" })), "kim1_3_personal_facts_private_복리-공식");
 });

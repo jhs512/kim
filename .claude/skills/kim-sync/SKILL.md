@@ -1,11 +1,11 @@
 ---
 name: kim-sync
-description: kim-1 vault(마크다운)를 Google Drive 노드시트로 one-way 투영하는 스킬. knowledge-work 세션 끝에 실행한다. 트리거 - "투영", "sync", "동기화", "Drive에 반영", "시트 갱신", "knowledge-work 마무리".
+description: kim1 vault(마크다운)를 Google Drive 노드시트로 one-way 투영하는 스킬. knowledge-work 세션 끝에 실행한다. 트리거 - "투영", "sync", "동기화", "Drive에 반영", "시트 갱신", "knowledge-work 마무리".
 ---
 
 # kim-sync — Drive 투영
 
-vault의 노드들을 `kim-1/{namespace}/{doctype}/` 폴더의 Google 노드시트로 **one-way 투영**한다.
+vault의 노드들을 `kim1/{namespace}/{doctype}/` 폴더의 Google 노드시트로 **one-way 투영**한다.
 로직은 테스트된 순수 모듈(parse/validate/resolve/build-values)이, I/O는 `scripts/sync.sh`가
 gws로 보증한다. **역동기화 없음**(폰 Gemini는 read-only 소비자, ADR-0003).
 
@@ -21,7 +21,7 @@ bash scripts/sync.sh
 ## 특성
 - **멱등**: vault 변화 없이 재실행하면 새 문서 0개, manifest 동일.
 - **전체 재투영**: 매 실행이 모든 노드를 다시 써서 엣지에 임베드된 이름을 최신으로 유지(ADR-0002).
-- 문서 이름 = `kim-1_{no}_{namespace}_{doctype}_{visibility}_{title}`.
+- 문서 이름 = `kim1_{no}_{namespace}_{doctype}_{visibility}_{title}`.
 
 ## 언제
 - **knowledge-work 세션을 끝낼 때**(노드 추가/정제 후). [[kim-learn]]/[[kim-clean]] 뒤 마지막 단계.

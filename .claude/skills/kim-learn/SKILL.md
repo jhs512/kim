@@ -1,6 +1,6 @@
 ---
 name: kim-learn
-description: 원자료(텍스트·대화·파일)를 kim-1 vault의 infinite-brain 타입 노드+엣지 마크다운으로 증류하는 그래프-인지 캡처 스킬. 추가 전에 그래프를 조회해 중복을 피하고 연결처를 찾는다. 트리거 - "지식 추가", "이거 기억해", "vault에 넣어줘", "노드로 만들어", "증류해줘".
+description: 원자료(텍스트·대화·파일)를 kim1 vault의 infinite-brain 타입 노드+엣지 마크다운으로 증류하는 그래프-인지 캡처 스킬. 추가 전에 그래프를 조회해 중복을 피하고 연결처를 찾는다. 트리거 - "지식 추가", "이거 기억해", "vault에 넣어줘", "노드로 만들어", "증류해줘".
 ---
 
 # kim-learn — 그래프-인지 캡처(증류)
@@ -17,7 +17,7 @@ description: 원자료(텍스트·대화·파일)를 kim-1 vault의 infinite-bra
 - `type`: 17종 중 하나(단수). `visibility`: `public|namespace|private|system`.
 - `edges`: `{target, type, weight, note}` 객체 배열. 엣지타입 10종(`related_to, supports, depends_on, derived_from, contradicts, part_of, preceded_by, followed_by, authored_by, tagged_with`).
 - 파일 위치: `vault/{namespace}/{doctype}/{no}_{슬러그}.md` (doctype = type의 복수 폴더명).
-- `no`: kim-1 전역 순번. **`node scripts/kim.mjs list`로 현재 최대 no 확인 후 +1**.
+- `no`: kim1 전역 순번. **`node scripts/kim.mjs list`로 현재 최대 no 확인 후 +1**.
 
 ## 캡처 파이프라인 (5단계)
 

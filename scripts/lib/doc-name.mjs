@@ -1,7 +1,7 @@
 // Build the targeting document name; make the title slot safe for exact-name
 // opening (ADR-0002 traversal). Pure. (issue 02)
 //
-// Node name = kim-1_{no}_{namespace}_{doctype}_{visibility}_{title}, where doctype
+// Node name = kim1_{no}_{namespace}_{doctype}_{visibility}_{title}, where doctype
 // is the plural folder name of the node `type` (infinite-brain: type singular, folder plural).
 
 import { STORE } from "./config.mjs";

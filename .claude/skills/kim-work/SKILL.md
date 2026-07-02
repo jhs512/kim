@@ -5,7 +5,7 @@ description: 김비서 작업 큐 워커 — {비서코드}-calendar의 만기 '
 
 # kim-work — 작업 큐 워커 (상태머신)
 
-폰 Gemini가 직접 못 해서 `{비서코드}-calendar`에 쌓아둔 **작업**을 kim-1(클로드 코드)이
+폰 Gemini가 직접 못 해서 `{비서코드}-calendar`에 쌓아둔 **작업**을 kim1(클로드 코드)이
 드레인한다. 결정적 큐 I/O는 `scripts/kim-cal.sh`(→ 테스트된 task/schedule)가, 실제 일과
 판단은 이 스킬이. 상태·용어는 `CONTEXT.md`·ADR-0004.
 

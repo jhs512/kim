@@ -11,7 +11,7 @@ cd "$(dirname "$0")/.."
 
 GWS=/c/Users/jangk/bin/gws
 SYNC_DIR=.sync; mkdir -p "$SYNC_DIR"
-CAL_NAME="$(node -e 'try{process.stdout.write((JSON.parse(require("fs").readFileSync("kim.config.json","utf8")).store||"kim-1")+"-calendar")}catch(e){process.stdout.write("kim-1-calendar")}')"
+CAL_NAME="$(node -e 'try{process.stdout.write((JSON.parse(require("fs").readFileSync("kim.config.json","utf8")).store||"kim1")+"-calendar")}catch(e){process.stdout.write("kim1-calendar")}')"
 nostrip() { grep -v -i keyring; }
 jget() { nostrip | node -e 'let d="";process.stdin.on("data",c=>d+=c).on("end",()=>{try{console.log(eval(process.argv[1]))}catch(e){console.log("")}})' "$1"; }
 

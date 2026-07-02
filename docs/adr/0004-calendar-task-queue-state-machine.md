@@ -3,7 +3,7 @@
 Anything the phone Gemini cannot do directly (능력 경계 밖 — send mail, edit a doc, save
 knowledge, long research) is **never refused**; it is filed as a **작업** on the
 `{비서코드}-calendar`, which serves as the work queue between the phone (producer) and the
-kim-1 Claude Code **워커** (consumer). Each task is a state machine —
+kim1 Claude Code **워커** (consumer). Each task is a state machine —
 `대기 → 작업중 → 성공 | 실패 | 정보필요` — encoded in the calendar event: the `[상태]` token
 lives in the title, and `요청:` / `필요정보:` / `이력:` in the description. Tasks are
 **append-only and non-destructive**; state changes swap the title token and append to `이력:`.
@@ -20,7 +20,7 @@ on the calendar as history.
 ## Consequences
 
 - The phone needs only Calendar CRUD (which it has) to enqueue; no custom backend.
-- "자동으로 재개" requires the kim-1 worker loop to be **running/scheduled** — the phone cannot
+- "자동으로 재개" requires the kim1 worker loop to be **running/scheduled** — the phone cannot
   execute queued work itself.
 - The calendar is the single shared state store; both actors read/write it via gws. History and
   audit come for free (nothing is deleted).

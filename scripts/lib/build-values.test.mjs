@@ -9,8 +9,8 @@ const node1 = {
   body: "첫 줄\n둘째 줄",
 };
 const edges1 = [
-  { type: "related_to", weight: 0.6, note: "대비", targetName: "kim-1_2_personal_concepts_public_단리", targetTitle: "단리" },
-  { type: "related_to", weight: 0.8, note: "수식", targetName: "kim-1_3_personal_facts_public_복리-공식", targetTitle: "복리 공식" },
+  { type: "related_to", weight: 0.6, note: "대비", targetName: "kim1_2_personal_concepts_public_단리", targetTitle: "단리" },
+  { type: "related_to", weight: 0.8, note: "수식", targetName: "kim1_3_personal_facts_public_복리-공식", targetTitle: "복리 공식" },
 ];
 
 test("builds the full node-sheet cell layout (metadata + body + edges table)", () => {
@@ -28,8 +28,8 @@ test("builds the full node-sheet cell layout (metadata + body + edges table)", (
     [],
     ["── edges ──"],
     ["type", "target_doc_name", "target_title", "weight", "note"],
-    ["related_to", "kim-1_2_personal_concepts_public_단리", "단리", "0.6", "대비"],
-    ["related_to", "kim-1_3_personal_facts_public_복리-공식", "복리 공식", "0.8", "수식"],
+    ["related_to", "kim1_2_personal_concepts_public_단리", "단리", "0.6", "대비"],
+    ["related_to", "kim1_3_personal_facts_public_복리-공식", "복리 공식", "0.8", "수식"],
   ]);
 });
 

@@ -1,15 +1,15 @@
-# kim-1
+# kim1
 
-kim-1 is a personal knowledge assistant instance: an atomic typed-markdown knowledge graph, versioned locally in git, projected one-way to a Google Spreadsheet that a phone Gemini reads for graph lookup. Derived from the `kim` product, run entirely locally (no CI).
+kim1 is a personal knowledge assistant instance: an atomic typed-markdown knowledge graph, versioned locally in git, projected one-way to a Google Spreadsheet that a phone Gemini reads for graph lookup. Derived from the `kim` product, run entirely locally (no CI).
 
 ## Language
 
 **Vault**:
-The atomic typed-markdown knowledge graph — each node a small markdown file with typed frontmatter, connected by typed edges. Vault nodes **are** infinite-brain nodes (same frontmatter/type/edge/visibility schema); kim-1 only adds a projection layer. The Obsidian app is out of scope. The **source of truth**. See `docs/infinite-brain/`.
+The atomic typed-markdown knowledge graph — each node a small markdown file with typed frontmatter, connected by typed edges. Vault nodes **are** infinite-brain nodes (same frontmatter/type/edge/visibility schema); kim1 only adds a projection layer. The Obsidian app is out of scope. The **source of truth**. See `docs/infinite-brain/`.
 _Avoid_: notes, Obsidian vault, database
 
 **Node**:
-One atomic markdown file — a full infinite-brain node (frontmatter fields `id, title, type, namespace, visibility, summary, tags, edges, confidence, …` per `docs/infinite-brain/FRONTMATTER-SCHEMA.md`) plus kim-1's `no`. Knowledge is decomposed into nodes, never stored as long documents.
+One atomic markdown file — a full infinite-brain node (frontmatter fields `id, title, type, namespace, visibility, summary, tags, edges, confidence, …` per `docs/infinite-brain/FRONTMATTER-SCHEMA.md`) plus kim1's `no`. Knowledge is decomposed into nodes, never stored as long documents.
 _Avoid_: note, document, page
 
 **Node type**:
@@ -21,11 +21,11 @@ A directed typed link in a node's `edges`, as an infinite-brain object `{target,
 _Avoid_: link, rel, relation
 
 **Derived repo**:
-This `kim-1` git repository — an instance derived from the `kim` product. Git is only versioned local storage for the vault; it runs no GitHub Actions and no remote automation.
+This `kim1` git repository — an instance derived from the `kim` product. Git is only versioned local storage for the vault; it runs no GitHub Actions and no remote automation.
 _Avoid_: fork, clone
 
 **비서코드 (Assistant code)**:
-The code identifying one assistant instance — e.g. `kim-1`, `eb1`, `my55`. It is the top-level targeting key: the prefix of every node-sheet document name and of the work-queue calendar (`{비서코드}-calendar`). On the phone, the user selects the active assistant by saying "**비서 {비서코드}**"; the phone then uses only that code's sheets and calendar. **One project manages exactly one assistant** (this project = `kim-1`); multiple assistants means multiple projects.
+The code identifying one assistant instance — e.g. `kim1`, `eb1`, `my55`. It is the top-level targeting key: the prefix of every node-sheet document name and of the work-queue calendar (`{비서코드}-calendar`). On the phone, the user selects the active assistant by saying "**비서 {비서코드}**"; the phone then uses only that code's sheets and calendar. **One project manages exactly one assistant** (this project = `kim1`); multiple assistants means multiple projects.
 _Avoid_: 저장소 코드/store code, workspace, project
 
 **Node sheet**:
@@ -33,7 +33,7 @@ The Google Spreadsheet projection of **one** node — a strict **1:1** with the 
 _Avoid_: graph sheet, mirror, aggregate, export
 
 **Document naming convention**:
-Because Gemini Live ignores which Drive folder a sheet lives in, targeting is encoded in the document *name*: `{비서코드}_{no}_{namespace}_{doctype}_{visibility}_{title}` (e.g. `kim-1_1_personal_concepts_public_복리`). This is how "only this assistant's knowledge" is selected among all of a person's Google docs. Sheets are also filed on disk as `kim-1/{namespace}/{doctype}/{document}` — folders are for **human browsing only**, never for targeting.
+Because Gemini Live ignores which Drive folder a sheet lives in, targeting is encoded in the document *name*: `{비서코드}_{no}_{namespace}_{doctype}_{visibility}_{title}` (e.g. `kim1_1_personal_concepts_public_복리`). This is how "only this assistant's knowledge" is selected among all of a person's Google docs. Sheets are also filed on disk as `kim1/{namespace}/{doctype}/{document}` — folders are for **human browsing only**, never for targeting.
 _Avoid_: path targeting, folder targeting
 
 **id**:
@@ -41,11 +41,11 @@ A node's original, stable identifier (from the infinite-brain node itself). Neve
 _Avoid_: no, key
 
 **no**:
-kim-1's own sequential number for a node — **globally unique within the store, regardless of namespace** (1, 2, 3, …). Distinct from `id`. Immutable once assigned. Appears in **both** the local markdown filename and the `{no}` slot of the sheet document name.
+kim1's own sequential number for a node — **globally unique within the store, regardless of namespace** (1, 2, 3, …). Distinct from `id`. Immutable once assigned. Appears in **both** the local markdown filename and the `{no}` slot of the sheet document name.
 _Avoid_: id, index, docNumber
 
 **Namespace**:
-The **project / team / domain** partition of the store (infinite-brain sense) — kebab-case, e.g. `personal`, `product-ops`, `growth`. The top folder level under the store (`kim-1/{namespace}/…`) and the first name slot after `no`. Distinct from **node type**: a namespace groups by domain, a type groups by kind. Enables scoped filtering.
+The **project / team / domain** partition of the store (infinite-brain sense) — kebab-case, e.g. `personal`, `product-ops`, `growth`. The top folder level under the store (`kim1/{namespace}/…`) and the first name slot after `no`. Distinct from **node type**: a namespace groups by domain, a type groups by kind. Enables scoped filtering.
 _Avoid_: node type, doctype, category, folder-as-type
 
 **Visibility**:
@@ -73,7 +73,7 @@ One of `대기` / `작업중` / `성공` / `실패` / `정보필요`. `정보필
 _Avoid_: status, phase
 
 **워커 (Worker)**:
-The kim-1 Claude Code loop that drains the 작업 큐 and runs the state machine (`대기`→`작업중`→`성공`|`실패`|`정보필요`). "자동으로 재개"means the worker loop is running/scheduled; the phone cannot do queued work itself.
+The kim1 Claude Code loop that drains the 작업 큐 and runs the state machine (`대기`→`작업중`→`성공`|`실패`|`정보필요`). "자동으로 재개"means the worker loop is running/scheduled; the phone cannot do queued work itself.
 _Avoid_: daemon, cron, agent
 
 **Knowledge work**:
